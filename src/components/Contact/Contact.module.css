@@ -1,0 +1,35 @@
+.btn {
+  /* border: none; */
+  background-color: #f54235;
+  font-weight: 600;
+  border-color: wheat;
+  color: yellow;
+  transition: all 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background-color: #f71808;
+  border-color: yellow;
+  box-shadow: 0 0 5px 0 rgb(45, 45, 45);
+}
+
+.dude {
+  position: relative;
+  color: yellow;
+  top: 2px;
+  margin-right: 5px;
+}
+
+.text {
+  display: inline;
+  color: wheat;
+}
+
+.phone {
+  position: relative;
+  color: yellowgreen;
+  top: 2px;
+  margin-right: 5px;
+}
