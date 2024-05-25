@@ -1,0 +1,43 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  position: relative;
+}
+
+.link {
+  color: wheat;
+  /* font-weight: 400; */
+  /* font-size: 20px; */
+  transition: color 0.25s ease-in-out;
+}
+
+.active {
+  color: white;
+}
+.link:hover,
+.link:focus {
+  color: white;
+}
+
+.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  /* position: absolute; */
+  bottom: -5px;
+  left: 0;
+}

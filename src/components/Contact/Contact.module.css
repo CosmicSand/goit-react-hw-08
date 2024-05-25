@@ -2,6 +2,13 @@
   /* border: none; */
   background-color: #f54235;
   font-weight: 600;
+  line-height: 0;
+  width: 70px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+
   border-color: wheat;
   color: yellow;
   transition: all 0.3s ease;
@@ -13,6 +20,17 @@
   background-color: #f71808;
   border-color: yellow;
   box-shadow: 0 0 5px 0 rgb(45, 45, 45);
+}
+
+.btn:first-of-type {
+  background-color: #4caf50;
+  color: yellow;
+  transition: background-color 250ms ease-in-out;
+}
+
+.btn:first-of-type:hover,
+.btn:first-of-type:focus {
+  background-color: #45a049;
 }
 
 .dude {
@@ -32,4 +50,11 @@
   color: yellowgreen;
   top: 2px;
   margin-right: 5px;
+}
+
+.container {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  align-items: center;
 }

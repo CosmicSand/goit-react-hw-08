@@ -19,14 +19,26 @@ function Contact({ contactInfo: { id, name, number } }) {
 
         <p className={css.text}>{number}</p>
       </div>
-      <button
-        className={css.btn}
-        type="button"
-        id={id}
-        onClick={(e) => dispatch(deleteContact(e.target.id))}
-      >
-        Delete
-      </button>
+      <div className={css.container}>
+        <button
+          className={css.btn}
+          type="button"
+          data-id={id}
+          onClick={(e) => dispatch(deleteContact(e.target.dataset.id))}
+        >
+          Edit
+        </button>
+        <button
+          className={css.btn}
+          type="button"
+          data-id={id}
+          onClick={(e) => {
+            dispatch(deleteContact(e.target.dataset.id));
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </>
   );
 }

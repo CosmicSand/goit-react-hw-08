@@ -1,9 +1,5 @@
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   margin-top: 20px;
-  height: 315px;
   border: 1px solid wheat;
   border-radius: 5px;
   padding: 20px;

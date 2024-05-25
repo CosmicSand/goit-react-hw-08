@@ -5,6 +5,7 @@ import { selectFiltersName } from "../../redux/filters/selectors";
 
 function ContactList() {
   const contacts = useSelector(selectFiltersName);
+
   return (
     <ul className={css.list}>
       {contacts
