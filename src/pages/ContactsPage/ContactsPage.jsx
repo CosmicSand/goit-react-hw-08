@@ -4,20 +4,18 @@ import ContactList from "../../components/ContactList/ContactList";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import storage from "redux-persist/lib/storage";
+
 import {
   selectEdited,
   selectError,
   selectLoading,
 } from "../../redux/contacts/selectors";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { setEdited } from "../../redux/contacts/slice";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loader from "../../components/Loader/Loader";
 import css from "./ContactsPage.module.css";
 
 export default function ContactsPage() {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   const isLoading = useSelector(selectLoading);
   const isError = useSelector(selectError);
   const edited = useSelector(selectEdited);
