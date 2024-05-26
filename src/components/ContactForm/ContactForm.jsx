@@ -13,13 +13,13 @@ function ContactForm() {
     name: "",
     number: "",
   };
-  const contactSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(2, " Too Short!")
-      .max(50, "Too Long!")
-      .required("Required"),
-    number: Yup.string().min(7, " Too Short!").required("Required"),
-  });
+  // const contactSchema = Yup.object().shape({
+  //   name: Yup.string()
+  //     .min(2, " Too Short!")
+  //     .max(50, "Too Long!")
+  //     .required("Required"),
+  //   number: Yup.string().min(7, " Too Short!").required("Required"),
+  // });
 
   function handleSubmit(values, actions) {
     const newContact = { ...values };
@@ -57,7 +57,7 @@ function ContactForm() {
     <Formik
       initialValues={initialInfo}
       onSubmit={handleSubmit}
-      validationSchema={contactSchema}
+      // validationSchema={contactSchema}
     >
       <Form className={css.form}>
         <label htmlFor={nameID}>Name</label>
@@ -67,6 +67,7 @@ function ContactForm() {
           id={nameID}
           name="name"
           placeholder="Elizabeth Bor"
+          required
         />
 
         <label htmlFor={numberID}>Number</label>
@@ -77,6 +78,7 @@ function ContactForm() {
           name="number"
           type="tel"
           placeholder="1234567"
+          required
         />
         <button className={css.btn} type="submit">
           Add contact

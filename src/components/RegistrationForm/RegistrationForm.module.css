@@ -34,8 +34,9 @@
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  border: none;
+  padding: 20px;
   font-weight: 600;
+  line-height: 0;
   color: yellow;
   background-color: #4caf50;
   border: 1px solid wheat;

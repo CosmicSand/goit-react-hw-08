@@ -6,8 +6,7 @@ export default function LoginPage() {
 
   return (
     <div className={css.container}>
-      <p>LogIn Page</p>
-      {/* {loggedIn && <LoginForm />} */}
+      <p>Simply LogIn </p>
       <LoginForm />
     </div>
   );

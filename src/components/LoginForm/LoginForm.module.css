@@ -32,14 +32,12 @@
   border: 1px solid yellow;
   box-shadow: 0 0 2px 0 yellow;
 }
-
 .btn {
   display: block;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  border: none;
-  padding: 10px 15px;
+  padding: 20px;
   font-weight: 600;
   line-height: 0;
   color: yellow;

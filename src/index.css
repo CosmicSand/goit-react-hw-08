@@ -100,7 +100,20 @@ button {
 address {
   font-style: normal;
 }
-
+label + span {
+  display: inline;
+  width: fit-content;
+  color: #f54235;
+  font-weight: 700;
+  margin-left: 10px;
+}
+label {
+  display: inline;
+  width: fit-content;
+  color: wheat;
+  font-size: 16px;
+  font-weight: 700;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
