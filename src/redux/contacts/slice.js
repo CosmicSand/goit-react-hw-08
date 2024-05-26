@@ -62,10 +62,12 @@ const contactsSlice = createSlice({
         state.loading = false;
       })
       .addCase(editContact.fulfilled, (state, action) => {
-        const contact = state.items.filter((contact) => {
-          contact.id === action.payload.id;
+        const contact = state.items.find((contact) => {
+          return contact.id === action.payload.id;
         });
+
         const newName = action.payload.name;
+
         const newNumber = action.payload.number;
 
         if (newName) {
