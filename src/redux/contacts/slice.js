@@ -1,4 +1,9 @@
-import { fetchContacts, addContact, deleteContact } from "./operations";
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+  editContact,
+} from "./operations";
 import { createSlice } from "@reduxjs/toolkit";
 
 const contactsSlice = createSlice({
@@ -47,6 +52,13 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, (state) => {
         state.error = true;
         state.loading = false;
+      })
+      .addCase(editContact.fulfilled, (state, action) => {
+        const contact = state.items.filter((contact) => {
+          contact.id === action.payload.id;
+        });
+        contact.name = action.payload.name;
+        contact.number = action.payload.number;
       });
   },
 });

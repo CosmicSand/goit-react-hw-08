@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { register, login, refresh, logout } from "./operations";
-import storage from "redux-persist/lib/storage";
 
 const authSlice = createSlice({
   name: "auth",

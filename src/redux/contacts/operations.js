@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { setAuthHeader } from "../auth/operations";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
@@ -36,6 +37,24 @@ export const deleteContact = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios.delete(`/contacts/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editContact = createAsyncThunk(
+  "editContact",
+  async (editedContact, thunkAPI) => {
+    const { id, name, number } = editedContact;
+    const reduxState = thunkAPI.getState();
+    const savedToken = reduxState.auth.token;
+
+    setAuthHeader(savedToken);
+    try {
+      const response = await axios.patch(`/contacts/${id}`, { name, number });
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

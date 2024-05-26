@@ -4,8 +4,14 @@ import { FaPhone } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
 
-function Contact({ contactInfo: { id, name, number } }) {
+function Contact({ contactInfo: { id, name, number }, openner, idSetter }) {
   const dispatch = useDispatch();
+
+  function handleClick(e) {
+    const id = e.target.dataset.id;
+    openner(true);
+    idSetter(id);
+  }
 
   return (
     <>
@@ -24,7 +30,7 @@ function Contact({ contactInfo: { id, name, number } }) {
           className={css.btn}
           type="button"
           data-id={id}
-          onClick={(e) => dispatch(deleteContact(e.target.dataset.id))}
+          onClick={(e) => handleClick(e)}
         >
           Edit
         </button>
