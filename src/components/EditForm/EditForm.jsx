@@ -60,7 +60,7 @@ export default function EditForm({ id, openner }) {
 
   return (
     <div className={css.backdrop}>
-      <h2>Edit </h2>
+      <h2 className={css.title}>Edit </h2>
 
       <Formik
         initialValues={initialInfo}

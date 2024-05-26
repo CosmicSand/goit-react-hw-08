@@ -5,9 +5,11 @@
   margin-top: 20px;
   height: 315px;
   border: 1px solid wheat;
+  background-color: rgb(40, 38, 38);
+  opacity: 1;
   border-radius: 5px;
   padding: 20px;
-  opacity: 1;
+  filter: blur(0);
 }
 .input {
   display: block;
@@ -84,8 +86,9 @@ label {
   width: 375px;
   padding: 15px;
   height: 100%;
-  background-color: rgb(40, 38, 38);
+  background-color: rgba(40, 38, 38, 0.8);
 
+  backdrop-filter: blur(4px);
   z-index: 999;
 }
 /* .container {
@@ -117,4 +120,9 @@ label {
   align-items: center;
   margin-top: 20px;
   column-gap: 20px;
+}
+.title {
+  color: wheat;
+  font-size: 20px;
+  margin-top: 20vh;
 }
