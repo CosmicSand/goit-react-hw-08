@@ -12,6 +12,14 @@ const contactsSlice = createSlice({
     items: [],
     loading: false,
     error: false,
+    edited: false,
+  },
+  reducers: {
+    setEdited: {
+      reducer: (state, action) => {
+        state.edited = action.payload;
+      },
+    },
   },
   extraReducers: (bilder) => {
     bilder
@@ -57,10 +65,18 @@ const contactsSlice = createSlice({
         const contact = state.items.filter((contact) => {
           contact.id === action.payload.id;
         });
-        contact.name = action.payload.name;
-        contact.number = action.payload.number;
+        const newName = action.payload.name;
+        const newNumber = action.payload.number;
+
+        if (newName) {
+          contact.name = newName;
+        }
+        if (newNumber) {
+          contact.number = newNumber;
+        }
       });
   },
 });
 
 export default contactsSlice.reducer;
+export const { setEdited } = contactsSlice.actions;

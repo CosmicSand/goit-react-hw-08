@@ -50,10 +50,23 @@ export const editContact = createAsyncThunk(
     const { id, name, number } = editedContact;
     const reduxState = thunkAPI.getState();
     const savedToken = reduxState.auth.token;
+    function prepare(name, number) {
+      if (!name && !number) {
+        return thunkAPI.rejectWithValue("No data to update");
+      } else if (!name) {
+        return { number };
+      } else if (!number) {
+        return { name };
+      }
+      return { name, number };
+    }
 
     setAuthHeader(savedToken);
     try {
-      const response = await axios.patch(`/contacts/${id}`, { name, number });
+      const response = await axios.patch(
+        `/contacts/${id}`,
+        prepare(name, number)
+      );
 
       return response.data;
     } catch (error) {

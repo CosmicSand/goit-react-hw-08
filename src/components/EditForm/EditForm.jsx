@@ -1,16 +1,14 @@
 import { useId } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
 import { editContact } from "../../redux/contacts/operations";
+import { setEdited } from "../../redux/contacts/slice";
 import css from "./EditForm.module.css";
 
-import { selectContacts } from "../../redux/contacts/selectors";
-import { fetchContacts } from "../../redux/contacts/operations";
 export default function EditForm({ id, openner }) {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+
   const nameID = useId();
   const numberID = useId();
   const initialInfo = {
@@ -52,8 +50,8 @@ export default function EditForm({ id, openner }) {
     console.log(editedContact);
 
     dispatch(editContact(editedContact));
+    dispatch(setEdited(true));
     actions.resetForm();
-    dispatch(fetchContacts);
     openner(false);
   }
 
