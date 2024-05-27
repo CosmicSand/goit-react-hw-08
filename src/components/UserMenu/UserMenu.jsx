@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectName } from "../../redux/auth/selectors";
 
@@ -8,12 +7,10 @@ import { logout } from "../../redux/auth/operations";
 export default function UserMenu() {
   const username = useSelector(selectName);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   function handleClick() {
     const token = localStorage.getItem("token");
     dispatch(logout(token));
-    // navigate("/", { replace: false });
   }
 
   return (
