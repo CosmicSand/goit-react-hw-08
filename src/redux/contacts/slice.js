@@ -4,6 +4,7 @@ import {
   deleteContact,
   editContact,
 } from "./operations";
+import { logout } from "../auth/operations";
 import { createSlice } from "@reduxjs/toolkit";
 
 const contactsSlice = createSlice({
@@ -76,6 +77,9 @@ const contactsSlice = createSlice({
         if (newNumber) {
           contact.number = newNumber;
         }
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.items = [];
       });
   },
 });
